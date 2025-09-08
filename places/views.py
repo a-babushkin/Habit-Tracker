@@ -1,4 +1,3 @@
-from rest_framework.permissions import IsAdminUser
 from rest_framework.viewsets import ModelViewSet
 
 from places.models import Place
@@ -11,4 +10,3 @@ class PlaceViewSet(ModelViewSet):
 
     queryset = Place.objects.all().order_by("title")
     serializer_class = PlaceSerializer
-    permission_classes = (IsAdminUser,)

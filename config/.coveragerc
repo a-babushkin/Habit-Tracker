@@ -1,0 +1,12 @@
+[run]
+omit =
+    *migrations*
+    */admin/*
+    */urls.py
+    */settings.py
+branch = True
+
+[report]
+show_missing = True
+skip_covered = False
+precision = 2

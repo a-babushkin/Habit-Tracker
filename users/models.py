@@ -28,7 +28,7 @@ class User(AbstractUser):
         null=True,
         help_text="Укажите город",
     )
-    tg_chat_id = models.IntegerField(
+    tg_chat_id = models.CharField(
         verbose_name="Chat ID",
         blank=True,
         null=True,

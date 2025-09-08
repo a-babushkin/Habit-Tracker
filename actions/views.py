@@ -1,4 +1,3 @@
-from rest_framework.permissions import IsAdminUser
 from rest_framework.viewsets import ModelViewSet
 
 from actions.models import Action
@@ -11,4 +10,3 @@ class ActionViewSet(ModelViewSet):
 
     queryset = Action.objects.all().order_by("title")
     serializer_class = ActionSerializer
-    permission_classes = (IsAdminUser,)

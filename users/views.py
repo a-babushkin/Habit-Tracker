@@ -21,7 +21,7 @@ class UserCreateApiView(CreateAPIView):
     permission_classes = (AllowAny,)
 
     def perform_create(self, serializer):
-        """метод устанавливающий новой привычке владельца"""
+        """метод кеширующий пароль при создании пользователя"""
         user = serializer.save(is_active=True)
         user.set_password(user.password)
         user.save()
@@ -50,6 +50,11 @@ class UserUpdateApiView(UpdateAPIView):
     serializer_class = UserSerializer
     permission_classes = (IsAdminUser | IsOwner,)
 
+    def perform_update(self, serializer):
+        """метод кеширующий пароль при обновлении пользователя"""
+        user = serializer.save(is_active=True)
+        user.set_password(user.password)
+        user.save()
 
 class UserDestroyApiView(DestroyAPIView):
     """Контроллер удаления пользователя"""

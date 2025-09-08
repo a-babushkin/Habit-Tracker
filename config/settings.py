@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     "drf_yasg",
     "users",
     "actions",
+    "places",
 ]
 
 REST_FRAMEWORK = {

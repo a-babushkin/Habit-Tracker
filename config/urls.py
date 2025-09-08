@@ -21,6 +21,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("actions/", include("actions.urls", namespace="actions")),
     path("places/", include("places.urls", namespace="places")),
+    path("habits/", include("habits.urls", namespace="habits")),
     path("users/", include("users.urls", namespace="users")),
     path(
         "swagger<format>/", schema_view.without_ui(cache_timeout=0), name="schema-json"

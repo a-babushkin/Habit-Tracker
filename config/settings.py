@@ -26,6 +26,7 @@ INSTALLED_APPS = [
     "users",
     "actions",
     "places",
+    "habits",
 ]
 
 REST_FRAMEWORK = {

@@ -136,8 +136,8 @@ CELERY_TASK_TIME_LIMIT = 30 * 60
 CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 
 CELERY_BEAT_SCHEDULE = {
-    "send_reminder_message": {
+    "send_reminder": {
         "task": "habits.tasks.send_reminder",
-        "schedule": timedelta(seconds=90),
+        "schedule": timedelta(seconds=120),
     }
 }

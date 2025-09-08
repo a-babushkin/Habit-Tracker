@@ -5,7 +5,7 @@ from habits.models import Habit
 from habits.paginations import HabitPagination
 from habits.serializers import HabitSerializer, HabitPublicSerializer, HabitCreateSerializer, HabitDetailsSerializer
 from users.permissions import IsOwner
-
+from habits.tasks import send_reminder
 
 # ===== Секция привычек ===============================================
 class HabitCreateAPIView(generics.CreateAPIView):

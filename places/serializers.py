@@ -22,4 +22,4 @@ class PlaceSerializer(serializers.ModelSerializer):
 class PlaceTitleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Place
-        fields = ['title']
+        fields = ["title"]

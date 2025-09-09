@@ -1,5 +1,6 @@
 from django.contrib import admin
-from habits.models import Habit, Place, Action
+
+from habits.models import Habit
 
 
 @admin.register(Habit)

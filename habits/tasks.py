@@ -18,9 +18,7 @@ def send_reminder() -> None:
         habit_time_full = datetime.combine(current_time.date(), habit.time)
 
         if current_time > habit_time_full:
-            text = (
-                f"Вам нужно сделать {habit.action} в {habit.place} в {habit.time}"
-            )
+            text = f"Вам нужно сделать {habit.action} в {habit.place} в {habit.time}"
             params = {
                 "text": text,
                 "chat_id": habit.owner.tg_chat_id,

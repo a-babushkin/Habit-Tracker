@@ -1,9 +1,9 @@
-from django.urls import path, include
+from django.urls import path
 from rest_framework.routers import SimpleRouter
 
 from habits.apps import HabitsConfig
-from habits.views import HabitCreateAPIView, HabitPublicListAPIView, HabitListAPIView, HabitRetrieveAPIView, \
-    HabitUpdateAPIView, HabitDestroyAPIView
+from habits.views import (HabitCreateAPIView, HabitDestroyAPIView, HabitListAPIView, HabitPublicListAPIView,
+                          HabitRetrieveAPIView, HabitUpdateAPIView)
 
 app_name = HabitsConfig.name
 

@@ -2,10 +2,9 @@ from rest_framework import serializers
 
 from actions.serializers import ActionTitleSerializer
 from habits.models import Habit
-from habits.validators import RewardOrRelatedHabitValidator, PleasantHabitRelatedValidator, \
-    NoRewardForPleasantHabitValidator, MaxDurationValidator, PeriodicityValidator
+from habits.validators import (MaxDurationValidator, NoRewardForPleasantHabitValidator, PeriodicityValidator,
+                               PleasantHabitRelatedValidator, RewardOrRelatedHabitValidator)
 from places.serializers import PlaceTitleSerializer
-
 
 
 # ===== Секция привычек ===============================================
@@ -25,7 +24,6 @@ class HabitSerializer(serializers.ModelSerializer):
             "is_pleasant",
             "periodicity",
             "is_public",
-
         ]
 
 

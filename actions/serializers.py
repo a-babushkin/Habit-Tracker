@@ -10,7 +10,6 @@ class ActionSerializer(serializers.ModelSerializer):
     def get_habits_count(self, obj):
         return obj.habits.count()
 
-
     class Meta:
         model = Action
         fields = [
@@ -19,7 +18,8 @@ class ActionSerializer(serializers.ModelSerializer):
             "habits_count",
         ]
 
+
 class ActionTitleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Action
-        fields = ['title']
+        fields = ["title"]

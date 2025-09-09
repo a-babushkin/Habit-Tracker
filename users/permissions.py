@@ -9,6 +9,7 @@ class IsOwner(permissions.BasePermission):
             return True
         return False
 
+
 #
 # class IsAdmin(permissions.BasePermission):
 #     """Проверяет, является ли текущий пользователь администратором"""

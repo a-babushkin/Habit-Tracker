@@ -246,3 +246,11 @@ class HabitAPITests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data['count'], 6)
         self.assertNotEqual(response.data['next'], 'None')
+
+    def test_ditail_habits(self):
+        """Тестирование вывода информации по конредной привычке"""
+        self.authenticate()
+        response = self.client.get(f'/habits/{self.habit_non_pleasant.id}/')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['time'], '12:00:00')
+        self.assertEqual(str(self.habit_non_pleasant), 'Test Action Test Place 12:00:00 30')

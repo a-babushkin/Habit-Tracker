@@ -1,9 +1,14 @@
 [run]
 omit =
-    *migrations*
-    */admin
+    */migrations/*
+    */management/*
+    */admin.py
+    */__init__.py
     */urls.py
     */settings.py
+    */asgi.py
+    */wsgi.py
+    */manage.py
 branch = True
 
 [report]

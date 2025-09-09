@@ -5,6 +5,7 @@ from rest_framework_simplejwt.tokens import AccessToken
 from actions.models import Action
 from users.models import User
 
+
 class ActionViewSetTests(APITestCase):
     def setUp(self):
         """Начальные установки для тестирования"""
@@ -54,3 +55,10 @@ class ActionViewSetTests(APITestCase):
         self.client.logout()
         response = self.client.get('/actions/')
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+
+    def test_ditail_action(self):
+        """Тестирование вывода информации по конкретному действию"""
+        response = self.client.get(f'/actions/{self.action1.id}/')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['title'], 'Action 1')
+        self.assertEqual(str(self.action1), 'Action 1')

@@ -18,13 +18,13 @@ class PlaceViewSetTests(APITestCase):
         self.place2 = Place.objects.create(title='Place 2')
 
     def test_list_places(self):
-        """Тестирование получения списка действий"""
+        """Тестирование получения списка мест"""
         response = self.client.get('/places/')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(Place.objects.count(), 2)
 
     def test_create_place(self):
-        """Тестирование создания действия"""
+        """Тестирование создания места"""
         data = {
             'title': 'New Place',
         }
@@ -34,7 +34,7 @@ class PlaceViewSetTests(APITestCase):
         self.assertEqual(Place.objects.get(id=response.data['id']).title, 'New Place')
 
     def test_update_place(self):
-        """Тестирование обновления действия"""
+        """Тестирование обновления места"""
         data = {
             'title': 'Updated Place'
         }
@@ -44,7 +44,7 @@ class PlaceViewSetTests(APITestCase):
         self.assertEqual(self.place1.title, 'Updated Place')
 
     def test_delete_place(self):
-        """Тестирование удаления действия"""
+        """Тестирование удаления места"""
         response = self.client.delete(f'/places/{self.place1.id}/')
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(Place.objects.count(), 1)  # Должно остаться 1 действие
@@ -54,3 +54,10 @@ class PlaceViewSetTests(APITestCase):
         self.client.logout()
         response = self.client.get('/places/')
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+
+    def test_ditail_place(self):
+        """Тестирование вывода информации по конредному месту"""
+        response = self.client.get(f'/places/{self.place1.id}/')
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.data['title'], 'Place 1')
+        self.assertEqual(str(self.place1), 'Place 1')
